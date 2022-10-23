@@ -6,19 +6,18 @@ import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
 
 const App = () => {
+
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
+    description: "",
+    amount: ""
   });
 
   const [editFormData, setEditFormData] = useState({
     fullName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
+    description: "",
+    amount: ""
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -53,11 +52,10 @@ const App = () => {
     const newContact = {
       id: nanoid(),
       fullName: addFormData.fullName,
-      address: addFormData.address,
-      phoneNumber: addFormData.phoneNumber,
-      email: addFormData.email,
+      description: addFormData.description,
+      amount: addFormData.amount
     };
-
+    
     const newContacts = [...contacts, newContact];
     setContacts(newContacts);
   };
@@ -68,9 +66,8 @@ const App = () => {
     const editedContact = {
       id: editContactId,
       fullName: editFormData.fullName,
-      address: editFormData.address,
-      phoneNumber: editFormData.phoneNumber,
-      email: editFormData.email,
+      description: editFormData.description,
+      amount: editFormData.amount
     };
 
     const newContacts = [...contacts];
@@ -89,9 +86,8 @@ const App = () => {
 
     const formValues = {
       fullName: contact.fullName,
-      address: contact.address,
-      phoneNumber: contact.phoneNumber,
-      email: contact.email,
+      description: contact.description,
+      amount: contact.amout
     };
 
     setEditFormData(formValues);
@@ -116,11 +112,11 @@ const App = () => {
       <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
+            <h1> Akhil's Budget Chart</h1>
             <tr>
               <th>Name</th>
-              <th>Address</th>
-              <th>Phone Number</th>
-              <th>Email</th>
+              <th>Description</th>
+              <th>Amount</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -146,7 +142,7 @@ const App = () => {
         </table>
       </form>
 
-      <h2>Add a Contact</h2>
+      <h2>New Input</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input
           type="text"
@@ -157,25 +153,19 @@ const App = () => {
         />
         <input
           type="text"
-          name="address"
+          name="description"
           required="required"
-          placeholder="Enter an addres..."
+          placeholder="Give a label..."
           onChange={handleAddFormChange}
         />
         <input
-          type="text"
-          name="phoneNumber"
+          type="number"
+          name="amount"
           required="required"
-          placeholder="Enter a phone number..."
+          placeholder="Enter an input..."
           onChange={handleAddFormChange}
         />
-        <input
-          type="email"
-          name="email"
-          required="required"
-          placeholder="Enter an email..."
-          onChange={handleAddFormChange}
-        />
+
         <button type="submit">Add</button>
       </form>
     </div>
