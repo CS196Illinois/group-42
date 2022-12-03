@@ -1,0 +1,28 @@
+{
+  "expenses": [
+    {
+      "amount": "100",
+      "reason": "Uber Fares",
+      "category": "Entertainment",
+      "id": 1
+    },
+    {
+      "amount": "25",
+      "reason": "Dinner",
+      "category": "Food",
+      "id": 2
+    },
+    {
+      "amount": "55",
+      "reason": "I went to watch a movie",
+      "category": "Entertainment",
+      "id": 3
+    },
+    {
+      "amount": "999",
+      "reason": "This is a test",
+      "category": "Other",
+      "id": 4
+    }
+  ]
+}
